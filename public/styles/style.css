@@ -1,0 +1,204 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.header{
+    background-color: black;
+    border-bottom: 3px solid #32b9cd;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 120px;
+}
+
+.titulo {
+    color: #32b9cd;
+}
+
+.navbar {
+    display: flex;
+    list-style: none;
+    width: 300px;
+    justify-content: space-between;
+    color: #e3b062;
+}
+
+.navbar a {
+    color: #e3b062;
+    outline: none;
+    text-decoration: none;
+}
+
+.agora {
+    font-weight: bolder;
+}
+
+.banner{
+    height: 400px;
+    width: 100%;
+    background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+    background-size: cover;
+}
+
+.banner .container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner .container p{
+    width: 170px;
+    color: white;
+    margin: 0;
+    font-size: 24px;
+}
+
+.banner .container span{
+    font-weight: bolder;
+}
+
+.social{
+    height: 400px;
+    width: 100%;
+    background-color: #dcdcdc;
+
+}
+
+.social .container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxes {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.box img{
+    width: 120px;
+    height: 120px;
+}
+
+.box h4 {
+    margin: 0;
+    margin-top: 10px;
+    color: #ed145b;
+}
+
+.footer{
+    height: 120px;
+    height: 100%;
+    background-color: #32b9cd;
+}
+
+.footer .container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.footer h4{
+    margin-bottom: 0;
+}
+
+/* Aqui termina o index.html */
+/* --- Estilos para Login e Cadastro --- */
+
+.login {
+    background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px);
+    /* Ajustado para preencher a tela */
+}
+
+.login .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 40px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.card h2 {
+    color: #ed145b;
+    margin-top: 0;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: black;
+}
+
+.formulario .campo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.formulario .campo span {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #ed145b;
+}
+
+.formulario input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #32b9cd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.formulario .botao {
+    background-color: #ed145b;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
