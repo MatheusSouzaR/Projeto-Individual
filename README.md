@@ -1,2 +1,3 @@
-#Elnde Ring
-![fundoEldenRing](https://github.com/user-attachments/assets/e486a833-f73a-4980-b4f6-a08ec3c6dd59)
+<h1 align="center">ELDEN RING</h1>
+
+![fundoEldenRing](https://github.com/user-attachments/assets/303be48e-15f0-41bf-af83-92c1810986a2)
