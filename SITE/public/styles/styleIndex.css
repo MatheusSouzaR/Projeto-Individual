@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root {
+    --preto: #040200;
+    --marrom-escuro: #27170d;
+    --marrom-claro: #653815;
+    --amarelo-escuro: #bd6707;
+    --dourado: #f9c043;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background-color: var(--preto);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    width: 100%;
+    background: linear-gradient(#27170d 70%, #000);
+}
+
+nav img {
+    width: 230px;
+    height: 230px;
+    margin: 20px;
+}
+
+nav span {
+    font-size: 35px;
+    font-family: "Cormorant Garamond", serif;
+    color: var(--dourado);
+    text-shadow: var(--marrom-claro) 4px 4px 4px;
+    word-spacing: 30px;
+    text-align: center;
+}
+
+nav .botoes {
+    display: flex;
+    width: 26%;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+
+nav button {
+    font-size: 32px;
+    font-family: "Cormorant Garamond", serif;
+    background-color: #8b6c28;
+    color: var(--marrom-escuro);
+    text-shadow: var(--marrom-escuro) 4px 4px 4px;
+    border-radius: 5px;
+    border: none;
+    width: 180px;
+    transition: transform 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+nav button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(to bottom right, #f9c043, #8b6c28 70%);
+}
+
+.tela-principal .home {
+    width: 100%;
+    height: 630px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tela-principal .img-fundo {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1)), url('../IMAGENS/fundoEldenRing.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+}
+
+.tela-principal .nome-eldenRing {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+}
+
+.historia {
+    width: 100%;
+    height: 740px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.historia h1 {
+    font-size: 60px;
+    font-family: "Cormorant Garamond", serif;
+    color: var(--dourado);
+    text-shadow: var(--marrom-claro) 4px 4px 4px;
+    text-align: center;
+    margin: 0;
+}
+
+.texto {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.box1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.box1 span {
+    color: var(--dourado);
+}
+
+p {
+    text-indent: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    margin: 20px 50px;
+    color: white;
+    text-align: justify;
+    line-height: 27px;
+}
+
+.box1 img {
+    width: 35%;
+    margin-right: 20px;
+}
+
+.mapa {
+    display: flex;
+    z-index: -1;
+}
