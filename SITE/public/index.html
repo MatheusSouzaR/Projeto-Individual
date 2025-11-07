@@ -6,60 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elden Ring</title>
     <link rel="icon" href="./IMAGENS/icon.png">
-    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <nav>
-        <img src="./IMAGENS/Nome-elden-ring.png" alt="Logo Elden Ring">
-        <span>HOME HISTÓRIA MAPA DICAS</span>
-        <div class="botoes">
-            <button>LOGIN</button>
-            <button>CADASTRO</button>
-        </div>
+    <nav id="home">
+        <img src="./IMAGENS/selo-eldenRing.png" alt="">
+        <a href="#home">HOME</a>
+        <a href="#historia">HISTÓRIA</a>
+        <a href="#mapa">MAPA</a>
+        <a href="./login.html">LOGIN</a>
+        <a href="./cadastro.html">CADASTRO</a>
+        <img src="./IMAGENS/selo-eldenRing.png" alt="">
     </nav>
+
     <div class="tela-principal">
         <div class="home">
             <div class="img-fundo"></div>
             <img src="./IMAGENS/Nome-elden-ring.png" alt="Nome Elden Ring" class="nome-eldenRing">
         </div>
-        <div class="historia">
+        <div class="historia" id="historia">
             <h1>HISTÓRIA</h1>
             <div class="box1">
-                <p>
-                    A história de <span>Elden Ring</span> se passa nas <span>Terras Intermédias</span>, um reino abençoado pelo <span>Anel Prístino</span> e a
-                    <span>Árvore Dourada</span>, que foi quebrado em um evento chamado "Fragmentação". O jogador assume o papel de um "Maculado", um exilado que retorna após a quebra do anel para reunir os fragmentos <span>(as Grandes Runas)</span> e se tornar o próximo <span>Senhor do Anel</span>. A trama é complexa, envolvendo a deusa <span>Marika</span>, seus filhos semideuses, e a influência de deuses exteriores, culminando em uma guerra pelo poder e no declínio do reino.<br>
-                    <span>Seu Objetivo:</span> Como um <span>Maculado</span>, você deve derrotar os semideuses, reunir as <span>Grandes Runas</span> e marchar para a <span>Térvore</span> para restaurar o <span>Elden Ring</span> e decidir o destino do mundo, podendo estabelecer uma nova ordem ou um novo caminho
-                    para as <span>Terras Intermédias</span>.
-                </p>
-                <img src="./IMAGENS/elden-ring-godfrey-card.jpg" alt="">
+                <div class="texto">
+                    <p>
+                        A história de <span>Elden Ring</span> se passa nas <span>Terras Intermédias</span>, um reino
+                        abençoado pelo <span>Anel Prístino</span> e a
+                        <span>Árvore Dourada</span>, que foi quebrado em um evento chamado "Fragmentação". O jogador
+                        assume
+                        o papel de um "Maculado", um exilado que retorna após a quebra do anel para reunir os fragmentos
+                        <span>(as Grandes Runas)</span> e se tornar o próximo <span>Senhor do Anel</span>. A trama é
+                        complexa, envolvendo a deusa <span>Marika</span>, seus filhos semideuses, e a influência de
+                        deuses
+                        exteriores, culminando em uma guerra pelo poder e no declínio do reino.<br>
+                    </p>
+                    <p>
+                        <span>Seu Objetivo:</span> Como um <span>Maculado</span>, você deve derrotar os semideuses,
+                        reunir
+                        as <span>Grandes Runas</span> e marchar para a <span>Térvore</span> para restaurar o <span>Elden
+                            Ring</span> e decidir o destino do mundo, podendo estabelecer uma nova ordem ou um novo
+                        caminho
+                        para as <span>Terras Intermédias</span>.
+                    </p>
+                    <p><span>O Elden Ring e a Ordem Dourada:</span> O Elden Ring é a manifestação da ordem e das leis do
+                        mundo,
+                        concedidas pela Vontade Maior (uma divindade exterior) e mantidas pela Rainha Marika, a Eterna.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="./IMAGENS/elden-ring-godfrey-card.jpg" alt="">
+                </div>
             </div>
             <div class="box2">
-                <p>
-                    <span>Eventos Principais do Enredo</span><br>
-                    <span>O Elden Ring e a Ordem Dourada:</span> O Elden Ring é a manifestação da ordem e das leis do
-                    mundo,
-                    concedidas pela Vontade Maior (uma divindade exterior) e mantidas pela Rainha Marika, a Eterna.<br>
-                    <span>A Noite das Facas Negras e a Ruptura (The Shattering):</span> Tudo começou com o assassinato
+                <p><span>A Noite das Facas Negras e a Ruptura (The Shattering):</span> Tudo começou com o assassinato
                     do primogênito
                     de Marika, Godwyn, o Dourado, em um plano orquestrado por Ranni para se libertar do controle da
-                    Vontade Maior.<br> Consumida pela dor e talvez em rebelião contra a Vontade Maior, a Rainha Marika
-                    quebrou o Elden Ring.<br>
-                    <span>A Guerra dos Semideuses:</span> Os fragmentos do anel, as Grandes Runas, foram coletados pelos
-                    filhos
-                    semideuses de Marika e Radagon (que eram a mesma entidade), que, corrompidos pelo poder, entraram em
-                    uma guerra brutal e sem fim, conhecida como a Ruptura.<br>
-                    <span>O Retorno dos Maculados:</span> Com o mundo em estagnação e decadência, a graça da Térvore,
+                    Vontade Maior. Consumida pela dor e talvez em rebelião contra a Vontade Maior, a Rainha Marika
+                    quebrou o
+                    Elden Ring.<br></p>
+                <p><span>A Guerra dos Semideuses:</span> Os fragmentos do anel, as Grandes Runas, foram coletados pelos
+                    filhos semideuses de Marika e Radagon (que eram a mesma entidade), que, corrompidos pelo poder,
+                    entraram
+                    em uma guerra brutal e sem fim, conhecida como a Ruptura.<br></p>
+                <p><span>O Retorno dos Maculados:</span> Com o mundo em estagnação e decadência, a graça da Térvore,
                     que havia sido
                     tirada dos Maculados (guerreiros exilados de outrora), retorna a eles, guiando-os de volta às Terras
-                    Intermédias.<br>
+                    Intermédias.<br></p>
                 </p>
             </div>
         </div>
-        <div class="mapa">
-            <img src="./IMAGENS/mapa.jpg" alt="">
+        <div class="mapa" id="mapa">
+            <div class="img"></div>
         </div>
     </div>
+
+    <footer>
+        
+    </footer>
 </body>
 
 </html>
