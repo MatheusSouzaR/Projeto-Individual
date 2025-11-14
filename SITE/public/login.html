@@ -11,6 +11,11 @@
 </head>
 
 <body>
+    <div id="div_loading" style="display: none;">
+        <img src="./IMAGENS/telaLoading.jpeg" alt="">
+        <p id="p"></p>
+        <hr id="hr">
+    </div>
     <div class="tela-login">
         <a class="seta" href="./index.html"><img src="./IMAGENS/seta.png" alt=""></a>
         <div class="box-login">
@@ -23,6 +28,11 @@
                 <div id="mensagem_erro"></div>
                 <div class="botoes">
                     <button onclick="logar()">Login</button>
+                </div>
+            </div>
+            <div class="cardErro" id="cardErro" style="display: none;">
+                <div class="erro">
+                    <div id="div_mensagem"></div>
                 </div>
             </div>
             <div class="box-link">
@@ -38,15 +48,44 @@
 </html>
 
 <script>
+    var tamanho = 0;
+    var porcentagem = 0;
+    function loading() {
+        div_loading.style.display = 'flex';
+        carregar()
+    }
+    function carregar() {
+        tamanho += 45;
+        porcentagem += 3;
+        hr.style.width = `${tamanho}px`
+        p.innerHTML = `${porcentagem}%`;
+
+        setTimeout(() => {
+            carregar()
+        }, "78");
+
+        setTimeout(() => {
+            fecharModal()
+        }, "2800");
+    }
     function logar() {
         var email = input_email.value;
         var senha = input_senha.value;
 
         if (email == "" || senha == "") {
-            alert("(Mensagem de erro para todos os campos em branco)");
-            return false;
+            cardErro.style.display = "flex";
+            div_mensagem.innerHTML =
+                "Todos os campos devem estar preenchidos";
+            setTimeout(() => {
+                fecharModal()
+            }, "1500");
+        } else if (!email.includes('@') || !email.includes('.')) {
+            div_mensagem.innerHTML = "O formato do seu email está errado precisa conter '@' e '.'!<br>";
+            cardErro.style.display = "flex";
+            setTimeout(() => {
+                fecharModal()
+            }, "1500");
         }
-
         console.log("FORM LOGIN: ", email);
         console.log("FORM SENHA: ", senha);
 
@@ -69,20 +108,25 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome
+                    sessionStorage.NOME_USUARIO = json.nome;
 
+                    loading();
                     setTimeout(function () {
                         window.location = "index.html";
-                    }, 1000);
+                    }, 2800);
                 });
-
             } else {
-
+                div_mensagem.innerHTML = "Usuário não encontrado<br>";
+                cardErro.style.display = "flex";
+                setTimeout(() => {
+                    fecharModal()
+                }, "1500");
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
                     console.error(texto);
                 });
+
             }
 
         }).catch(function (erro) {
@@ -91,4 +135,8 @@
         return false;
     }
 
+    function fecharModal() {
+        cardErro.style.display = "none";
+        div_loading.style.display = 'none';
+    }
 </script>

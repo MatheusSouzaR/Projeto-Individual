@@ -13,7 +13,7 @@
 <body>
   <div class="tela-cadastro">
     <div class="img-cadastro">
-      <img src="./IMAGENS/9690xg67e5o81.gif" alt="">
+      <img src="./IMAGENS/sentado.gif" alt="">
       <a class="seta" href="./index.html"><img src="./IMAGENS/seta.png" alt=""></a>
     </div>
     <div class="box-cadastro">
@@ -34,6 +34,11 @@
       <div class="box-link">
         <p>Já tem cadastro? Faça <a href="./login.html">login aqui</a></p>
       </div>
+      <div class="cardErro" id="cardErro" style="display: none;">
+        <div class="erro">
+          <div id="div_mensagem"></div>
+        </div>
+      </div>
     </div>
   </div>
 </body>
@@ -52,18 +57,43 @@
     var senha = input_senha.value;
     var confirmacaoSenha = input_confirmarSenha.value;
 
-    // Verificando se há algum campo em branco
     if (
       nome == "" ||
       email == "" ||
       senha == "" ||
       confirmacaoSenha == ""
     ) {
-      alert("(Mensagem de erro para todos os campos em branco)");
-
-    } else {
-      alert('Dados salvos')
-    }
+      cardErro.style.display = "flex";
+      div_mensagem.innerHTML =
+        "Todos os campos devem estar preenchidos";
+      setTimeout(() => {
+        fecharModal()
+      }, "1500");
+    }else if (nome.length <= 1) {
+      div_mensagem.innerHTML = "Seu nome tem que ter mais de um digito!<br>";
+      cardErro.style.display = "flex";
+      setTimeout(() => {
+        fecharModal()
+      }, "1500");
+    } else if (!email.includes('@') || !email.includes('.')) {
+      div_mensagem.innerHTML = "O formato do seu email está errado precisa conter '@' e '.'!<br>";
+      cardErro.style.display = "flex";
+      setTimeout(() => {
+        fecharModal()
+      }, "1500");
+    } else if (senha.length < 8) {
+      div_mensagem.innerHTML = "Sua senha tem que ter 8 ou mais digitos!<br>";
+      cardErro.style.display = "flex";
+      setTimeout(() => {
+        fecharModal()
+      }, "1500");
+    } else if (confirmacaoSenha != senha) {
+      div_mensagem.innerHTML = "As senhas não estão iguais!<br>";
+      cardErro.style.display = "flex";
+      setTimeout(() => {
+        fecharModal()
+      }, "1500");
+    }else
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -87,7 +117,8 @@
 
           setTimeout(() => {
             window.location = "login.html";
-          }, "2000");
+          }, "1500");
+
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
@@ -97,5 +128,9 @@
       });
 
     return false;
+  }
+
+  function fecharModal() {
+    cardErro.style.display = "none";
   }
 </script>
