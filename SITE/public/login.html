@@ -11,11 +11,6 @@
 </head>
 
 <body>
-    <div id="div_loading" style="display: none;">
-        <img src="./IMAGENS/telaLoading.jpeg" alt="">
-        <p id="p"></p>
-        <hr id="hr">
-    </div>
     <div class="tela-login">
         <a class="seta" href="./index.html"><img src="./IMAGENS/seta.png" alt=""></a>
         <div class="box-login">
@@ -40,7 +35,7 @@
             </div>
         </div>
         <div class="img-login">
-            <img src="./IMAGENS/9690xg67e5o81.gif" alt="">
+            <img src="./IMAGENS/sentado.gif" alt="">
         </div>
     </div>
 </body>
@@ -48,26 +43,6 @@
 </html>
 
 <script>
-    var tamanho = 0;
-    var porcentagem = 0;
-    function loading() {
-        div_loading.style.display = 'flex';
-        carregar()
-    }
-    function carregar() {
-        tamanho += 45;
-        porcentagem += 3;
-        hr.style.width = `${tamanho}px`
-        p.innerHTML = `${porcentagem}%`;
-
-        setTimeout(() => {
-            carregar()
-        }, "78");
-
-        setTimeout(() => {
-            fecharModal()
-        }, "2800");
-    }
     function logar() {
         var email = input_email.value;
         var senha = input_senha.value;
@@ -110,9 +85,8 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
 
-                    loading();
                     setTimeout(function () {
-                        window.location = "index.html";
+                        window.location = "./dashboard/dashboard.html";
                     }, 2800);
                 });
             } else {
@@ -137,6 +111,5 @@
 
     function fecharModal() {
         cardErro.style.display = "none";
-        div_loading.style.display = 'none';
     }
 </script>
