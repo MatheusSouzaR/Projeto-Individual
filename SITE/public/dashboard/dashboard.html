@@ -9,7 +9,7 @@
     <title>Elden Ring | Build</title>
 
     <link rel="icon" href="../IMAGENS/icon.png">
-    <link rel="stylesheet" href="../css/dashboards.css"/>
+    <link rel="stylesheet" href="../css/dashboards.css" />
     <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!--FONT AWESOME-->
@@ -45,28 +45,26 @@
                 </div>
             </div>
             <div class="classes">
-                <div class="carrossel box1">
+                <button class="voltar" onclick="voltar()">&#10094;</button>
+                <div class="carrossel box1" id="box1">
                     <img src="imagens/PRINTS/miseravel.png" alt="Imagem das classes">
                     <img src="imagens/PRINTS/andarilho.png" alt="Imagem das classes">
                     <img src="imagens/PRINTS/astrologo.png" alt="Imagem das classes">
                 </div>
-                <div class="carrossel box2" style="display: none;">
+                <div class="carrossel box2" id="box2" style="display: none;">
                     <img src="imagens/PRINTS/bandido.png" alt="Imagem das classes">
                     <img src="imagens/PRINTS/confessor.png" alt="Imagem das classes">
                     <img src="imagens/PRINTS/guerreiro.png" alt="Imagem das classes">
                 </div>
-                <div class="carrossel box 3" style="display: none;">
+                <div class="carrossel box3" id="box3" style="display: none;">
                     <img src="imagens/PRINTS/heroi.png" alt="Imagem das classes">
                     <img src="imagens/PRINTS/prisioneiro.png" alt="Imagem das classes">
                     <img src="imagens/PRINTS/profeta.png" alt="Imagem das classes">
                 </div>
-                <div class="carrossel box4" style="display: none;">
+                <div class="carrossel box4" id="box4" style="display: none;">
                     <img src="imagens/PRINTS/samurai.png" alt="Imagem das classes">
                 </div>
-                <div id="passar">
-                    <button class="voltar">&#10094;</button>
-                    <button class="seguir">&#10095;</button>
-                </div>
+                <button class="seguir" onclick="seguir()">&#10095;</button>
             </div>
             <div class="container">
                 <div class="atributos">
@@ -253,13 +251,15 @@
                         <h1>Arma indicada para builds de Fé</h1>
                         <img src="./imagens/fe.webp" alt="">
                         <h1> Espada Codificada (Cipher Pata)</h1>
-                        <p>Essa arma é uma das melhores que escalam puramente com Fé, podendo atingir um escalonamento de S com aprimoramentos.</p>
+                        <p>Essa arma é uma das melhores que escalam puramente com Fé, podendo atingir um escalonamento
+                            de S com aprimoramentos.</p>
                     </div>
                     <div id="arc" class="boxes" style="display: none;">
                         <h1>Arma indicada para builds de Arcano</h1>
                         <img src="./imagens/arc.webp" alt="">
                         <h1>Reduvia (adaga)</h1>
-                        <p>Para builds focadas em Arcano, as armas que causam sangramento (hemorrhage) são geralmente as mais eficazes.</p>
+                        <p>Para builds focadas em Arcano, as armas que causam sangramento (hemorrhage) são geralmente as
+                            mais eficazes.</p>
                     </div>
                 </div>
                 <div class="grafico">
@@ -314,6 +314,38 @@
         dashboard.style.display = 'flex';
     }
 
+    function seguir() {
+        if (box1.style.display == 'flex') {
+            box1.style.display = 'none'
+            box2.style.display = 'flex'
+        } else if (box2.style.display == 'flex') {
+            box2.style.display = 'none'
+            box3.style.display = 'flex'
+        } else if (box3.style.display == 'flex') {
+            box3.style.display = 'none'
+            box4.style.display = 'flex'
+        } else {
+            box1.style.display = 'flex'
+            box4.style.display = 'none'
+        }
+    }
+
+    function voltar() {
+        if (box4.style.display == 'flex') {
+            box4.style.display = 'none'
+            box3.style.display = 'flex'
+        } else if (box3.style.display == 'flex') {
+            box3.style.display = 'none'
+            box2.style.display = 'flex'
+        } else if (box2.style.display == 'flex') {
+            box2.style.display = 'none'
+            box1.style.display = 'flex'
+        } else {
+            box4.style.display = 'flex'
+            box1.style.display = 'none'
+        }
+    }
+
     var grafico = document.getElementById('grafico');
 
     new Chart(grafico, {
@@ -342,8 +374,8 @@
                     min: 0,
                     max: 200,
                     ticks: {
-                        display: false, 
-                        backdropColor: "transparent"
+                        display: false,
+
                     },
                     pointLabels: {
                         color: "#fff",

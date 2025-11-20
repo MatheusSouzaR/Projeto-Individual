@@ -25,6 +25,22 @@
             <button onclick="fecharLateral()">FECHAR <span>&#10095;</span></button>
         </div>
     </nav>
+    <div id="modalClasse" style="display: none;">
+        <div class="modal">
+            <h1>Selecione a classe:</h1>
+            <Select>
+                <option disabled selected value="#">Selecione qual classe usar:</option>
+                <option value="1">Guerreirin</option>
+                <option value="2">Coque</option>
+                <option value="3">Biorn</option>
+                <option value="4">Ragnar</option>
+            </Select>
+            <div class="botaoModal">
+                <button onclick="fecharModal()">Selecionar</button>
+                <button onclick="fecharModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
     <div id="telaPrincipal">
         <div class="header">
             <img src="./imagens/barras.png" alt="" onclick="abriLateral()">
@@ -33,17 +49,18 @@
             </div>
         </div>
         <div class="topo">
-            <div onclick="verClasses()" class="kpi atual">
+            <div class="kpi atual">
                 Classe Atual
                 <h1>Samurai</h1>
-            </div>
-            <div class="kpi classe">
-                Classe mais usada:
-                <h1>Samurai</h1>
+                <button onclick="mudarClasse()">Mudar classe</button>
             </div>
             <div class="kpi build">
                 Build mais usada:
                 <h1>Força</h1>
+            </div>
+            <div class="kpi classe">
+                Classe mais usada:
+                <h1>Samurai</h1>
             </div>
         </div>
         <div class="baixo">
@@ -51,15 +68,20 @@
                 <canvas id="grafico"></canvas>
             </div>
             <div class="tabela">
-                <div>
-                    Ranking top 5 classes
+                <div class="titulo">
+                    TOP CLASSES | USUÁRIOS
                 </div>
-                <div>
-                    guerreiro
-                    heroi
-                    prisioneiro
-                    profeta
-                    samurai
+                <div class="tops">
+                    <span>1º</span> <span>Samurai</span> <span>300<br></span>
+                    <hr>
+                    <span>2º</span> <span>Herói</span> <span>300<br></span>
+                    <hr>
+                    <span>3º</span> <span>Prisioneiro</span> <span>300<br></span>
+                    <hr>
+                    <span>4º</span> <span>Profeta</span> <span>300<br></span>
+                    <hr>
+                    <span>5º</span> <span>Guerreiro</span> <span>300<br></span>
+                    <hr>
                 </div>
             </div>
         </div>
@@ -78,12 +100,20 @@
         telaPrincipal.style.width = '100%';
     }
 
+    function mudarClasse() {
+        modalClasse.style.display = 'flex'
+    }
+
+    function fecharModal() {
+        modalClasse.style.display = 'none'
+    }
+
     var cores = [
-        'rgba(255, 99, 132, 0.5)',
-        'rgba(54, 162, 235, 0.5)',
-        'rgba(255, 206, 86, 0.5)',
-        'rgba(75, 192, 192, 0.5)',
-        'rgba(153, 102, 255, 0.5)'
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(255, 206, 86, 0.6)',
+        'rgba(75, 192, 192, 0.6)',
+        'rgba(153, 102, 255, 0.6)'
     ];
 
     var grafico = document.getElementById('grafico');
@@ -93,24 +123,30 @@
         data: {
             labels: ['For', 'Int', 'Dex', 'Fé', 'Arc'],
             datasets: [{
-                label: 'Build',
-                data: [180, 110, 120, 115, 100],
+                label: 'Quantidade de Classes por Build',
+                data: [7, 1, 5, 2, 3],
                 borderWidth: 3,
-                backgroundColor: cores
+                backgroundColor: cores,
             }]
         },
         options: {
             plugins: {
                 legend: {
                     labels: {
-                        color: 'white'
+                        color: 'white',
+                        font: {
+                            size: 18
+                        }
                     }
                 }
             },
             scales: {
                 x: {
                     ticks: {
-                        color: 'white'
+                        color: 'white',
+                        font: {
+                            size: 15
+                        }
                     }
                 },
                 y: {
