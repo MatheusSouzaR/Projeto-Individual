@@ -5,7 +5,7 @@
   --marrom-escuro: #27170d;
   --marrom-claro: #653815;
   --amarelo-escuro: #bd6707;
-  --dourado: #f9c043;
+  --dourado: rgb(249, 192, 67);
 }
 
 html {
@@ -137,7 +137,7 @@ body {
 
 .header {
   display: flex;
-  width: 63%;
+  width: 67%;
   height: 100px;
   justify-content: space-between;
   align-items: center;
@@ -155,6 +155,11 @@ body {
   height: 60px;
   margin-left: 10px;
   cursor: pointer;
+}
+
+.header img:hover{
+  width: 80px;
+  height: 80px;
 }
 
 .classes {
@@ -207,7 +212,7 @@ body {
   display: flex;
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5)), url('../dashboard/imagens/fundo.webp');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1)), url('../dashboard/imagens/fundo.webp');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -326,11 +331,11 @@ body {
   margin-right: 25px;
 }
 
-.build {
+.builds {
   display: flex;
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5)), url('../dashboard/imagens/fundo2.webp');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1)), url('../dashboard/imagens/fundo2.webp');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -358,12 +363,86 @@ body {
   width: 80%;
 }
 
-#forca{
+.boxes{
   text-align: center;
   color: var(--dourado);
 }
 
-#forca img{
+.boxes img{
   width: 500px;
   height: 500px;
+}
+
+/* Tela de Classes */
+
+.fundo-classes{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1)), url('../dashboard/imagens/fundoClasses.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%; 
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.fundo-classes #telaPrincipal{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.topo{
+  display: flex;
+  width: 98%;
+  height: 30%;
+  flex-direction: row;
+  justify-content: space-around;
+  color: white;
+}
+
+.baixo{
+  display: flex;
+  width: 98%;
+  height: 70%;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.grafico{
+  width: 50%;
+}
+
+.tabela{
+  background-color: #040200;
+  width: 20%;
+}
+
+.kpi{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  backdrop-filter: blur(1.2px);
+  width: 250px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.kpi h1{
+  color: var(--dourado);
+}
+
+.atual{
+  background-color: rgba(205, 38, 63, 0.5);
+}
+
+.build{
+  background-color: rgba(0, 123, 255, 0.35);
+}
+
+.classe{
+  background-color: rgba(38, 148, 17, 0.5);
 }

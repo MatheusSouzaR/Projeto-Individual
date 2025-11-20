@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elden Ring | Classes</title>
+    <title>Elden Ring | Build</title>
 
     <link rel="icon" href="../IMAGENS/icon.png">
-    <link rel="stylesheet" href="../css/dashboards.css" />
+    <link rel="stylesheet" href="../css/dashboards.css"/>
     <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!--FONT AWESOME-->
@@ -30,7 +30,7 @@
             </div>
             <div class="telas">
                 <a href="../index.html">HOME</a>
-                <a href="../classes.html">CLASSES</a>
+                <a href="./classes.html">CLASSES</a>
                 <a href="../login.html">SAIR</a>
             </div>
             <div class="sair">
@@ -41,7 +41,7 @@
             <div class="header">
                 <img src="./imagens/barras.png" alt="" onclick="abriLateral()">
                 <div class="titulo">
-                    <h1>Escolha sua Classe</h1>
+                    <h1>MONTE SUA BUILD</h1>
                 </div>
             </div>
             <div class="classes">
@@ -229,18 +229,38 @@
                     </div>
                 </div>
             </div>
-            <div class="build">
+            <div class="builds">
                 <div class="arma">
-                    <div id="forca">
-                        <h1>Arma indicada para builds de força</h1>
-                        <img src="./imagens/Giant-Crusher.webp" alt="">
-                        <h1>Giant Crusher</h1>
-                        <p>Arma indicada para jogadores focados em ataques corpo-a-corpo</p>
+                    <div id="forca" class="boxes" style="display: block;">
+                        <h1>Espada Grande de Minério Meteórico (Meteoric Ore Blade)</h1>
+                        <h2>Arma indicada para builds de Força</h2>
+                        <img src="./imagens/forca.webp" alt="">
+                        <p>Essa arma uma excelente opção para builds de Força, com dano híbrido (físico e mágico).</p>
                     </div>
-                    <div id="int" style="display: none;"></div>
-                    <div id="dex" style="display: none;"></div>
-                    <div id="fe" style="display: none;"></div>
-                    <div id="arc" style="display: none;"></div>
+                    <div id="int" class="boxes" style="display: none;">
+                        <h1>Arma indicada para builds de Inteligência</h1>
+                        <img src="./imagens/int.webp" alt="">
+                        <h1> Espada Grande da Lua Negra (Dark Moon Greatsword)</h1>
+                        <p>Essa arma é amplamente considerada a melhor arma para builds de Inteligência pura.</p>
+                    </div>
+                    <div id="dex" class="boxes" style="display: none;">
+                        <h1>Arma indicada para builds de Destreza</h1>
+                        <img src="./imagens/dex.webp" alt="">
+                        <h1>Lâminas Gêmeas (Twinblades) </h1>
+                        <p>Essa arma é ótima para o início do jogo e escalam bem com Destreza.</p>
+                    </div>
+                    <div id="fe" class="boxes" style="display: none;">
+                        <h1>Arma indicada para builds de Fé</h1>
+                        <img src="./imagens/fe.webp" alt="">
+                        <h1> Espada Codificada (Cipher Pata)</h1>
+                        <p>Essa arma é uma das melhores que escalam puramente com Fé, podendo atingir um escalonamento de S com aprimoramentos.</p>
+                    </div>
+                    <div id="arc" class="boxes" style="display: none;">
+                        <h1>Arma indicada para builds de Arcano</h1>
+                        <img src="./imagens/arc.webp" alt="">
+                        <h1>Reduvia (adaga)</h1>
+                        <p>Para builds focadas em Arcano, as armas que causam sangramento (hemorrhage) são geralmente as mais eficazes.</p>
+                    </div>
                 </div>
                 <div class="grafico">
                     <div class="canvas">
@@ -322,7 +342,7 @@
                     min: 0,
                     max: 200,
                     ticks: {
-                        display: false,          // ❌ remove números internos
+                        display: false, 
                         backdropColor: "transparent"
                     },
                     pointLabels: {

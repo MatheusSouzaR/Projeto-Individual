@@ -34,13 +34,14 @@ nav {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 60%;
+    width: 70%;
 }
-.logar{
+
+.logar {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 40%;
+    width: 30%;
 }
 
 nav a {
@@ -68,7 +69,7 @@ nav a:hover {
 
 .tela-principal .home {
     width: 100%;
-    height: 630px;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,7 +93,7 @@ nav a:hover {
 
 .historia {
     width: 100%;
-    height: 740px;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,7 +109,7 @@ nav a:hover {
     margin: 0;
 }
 
-.texto {
+.box1 .texto {
     display: flex;
     height: 100%;
     width: 100%;
@@ -132,11 +133,11 @@ span {
 .tela-principal p {
     text-indent: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    margin: 10px 50px;
+    font-size: 19px;
+    margin: 10px 13px;
     color: white;
     text-align: justify;
-    line-height: 27px;
+    line-height: 30px;
 }
 
 .box1 .card {
@@ -155,7 +156,72 @@ span {
     height: 30%;
 }
 
-.mapa {
+.box3 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.box3 h1 {
+    text-align: center;
+}
+
+.box3 .card {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    margin-left: 20px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.box3 .card img {
+    width: 100%;
+    height: 90%;
+}
+
+.box3 .texto {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 90%;
+}
+
+.box3 .texto label {
+    font-size: 30px;
+    color: var(--dourado);
+    margin-left: 280px;
+}
+
+#jogo {
+    height: 120vh;
+}
+
+.box4 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.box4 .card {
+    width: 50%;
+    height: 50%;
+}
+
+.box4 .card img {
+    margin-top: 25px;
+    width: 750px;
+    height: 550px;
+}
+
+.box4 .texto {
+    width: 50%;
+    height: 100%;
+}
+
+#mapa {
     width: 100%;
     height: 1500px;
     display: flex;
@@ -163,7 +229,7 @@ span {
     justify-content: center;
 }
 
-.mapa .img {
+#mapa .img {
     display: flex;
     height: 100%;
     width: 100%;
@@ -171,6 +237,19 @@ span {
     object-fit: cover;
     background-size: cover;
     background-position: center;
+}
+
+.click {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.click:hover {
+    text-shadow:
+        -2px -2px 6px var(--dourado),
+        2px 2px 6px var(--dourado);
+    transition: 0.3s;
+    font-size: 21px;
 }
 
 footer {

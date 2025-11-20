@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes</title>
+
+    <link rel="icon" href="../IMAGENS/icon.png">
+    <link rel="stylesheet" href="../css/dashboards.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="fundo-classes">
+    <nav id="telaLateral" style="display: none;">
+        <div class="lateral">
+            <img src="./imagens/elden-ring-logo.png" alt="">
+        </div>
+        <div class="telas">
+            <a href="../index.html">HOME</a>
+            <a href="./dashboard.html">BUILDS</a>
+            <a href="../login.html">SAIR</a>
+        </div>
+        <div class="sair">
+            <button onclick="fecharLateral()">FECHAR <span>&#10095;</span></button>
+        </div>
+    </nav>
+    <div id="telaPrincipal">
+        <div class="header">
+            <img src="./imagens/barras.png" alt="" onclick="abriLateral()">
+            <div class="titulo" style="margin-right: 150px;">
+                <h1>CLASSES</h1>
+            </div>
+        </div>
+        <div class="topo">
+            <div onclick="verClasses()" class="kpi atual">
+                Classe Atual
+                <h1>Samurai</h1>
+            </div>
+            <div class="kpi classe">
+                Classe mais usada:
+                <h1>Samurai</h1>
+            </div>
+            <div class="kpi build">
+                Build mais usada:
+                <h1>Força</h1>
+            </div>
+        </div>
+        <div class="baixo">
+            <div class="grafico">
+                <canvas id="grafico"></canvas>
+            </div>
+            <div class="tabela">
+                <div>
+                    Ranking top 5 classes
+                </div>
+                <div>
+                    guerreiro
+                    heroi
+                    prisioneiro
+                    profeta
+                    samurai
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function abriLateral() {
+        telaLateral.style.display = 'flex';
+        telaPrincipal.style.width = '85%';
+    }
+
+    function fecharLateral() {
+        telaLateral.style.display = 'none';
+        telaPrincipal.style.width = '100%';
+    }
+
+    var cores = [
+        'rgba(255, 99, 132, 0.5)',
+        'rgba(54, 162, 235, 0.5)',
+        'rgba(255, 206, 86, 0.5)',
+        'rgba(75, 192, 192, 0.5)',
+        'rgba(153, 102, 255, 0.5)'
+    ];
+
+    var grafico = document.getElementById('grafico');
+
+    new Chart(grafico, {
+        type: 'bar',
+        data: {
+            labels: ['For', 'Int', 'Dex', 'Fé', 'Arc'],
+            datasets: [{
+                label: 'Build',
+                data: [180, 110, 120, 115, 100],
+                borderWidth: 3,
+                backgroundColor: cores
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white'
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: 'white'
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: 'white'
+                    }
+                }
+            }
+        }
+    });
+
+</script>
