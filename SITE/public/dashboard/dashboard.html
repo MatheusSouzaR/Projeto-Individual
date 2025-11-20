@@ -46,23 +46,23 @@
             </div>
             <div class="classes">
                 <button class="voltar" onclick="voltar()">&#10094;</button>
-                <div class="carrossel box1" id="box1">
-                    <img src="imagens/PRINTS/miseravel.png" alt="Imagem das classes">
-                    <img src="imagens/PRINTS/andarilho.png" alt="Imagem das classes">
-                    <img src="imagens/PRINTS/astrologo.png" alt="Imagem das classes">
+                <div class="carrossel box1" id="box1" id="carrossel">
+                    <img src="imagens/PRINTS/miseravel.png" id="img_miseravel" onclick="destacar(0, 'miseravel')" alt="Imagem das classes">
+                    <img src="imagens/PRINTS/andarilho.png" id="img_andarilho" onclick="destacar(1, 'andarilho')" alt="Imagem das classes">
+                    <img src="imagens/PRINTS/astrologo.png" id="img_astrologo" onclick="destacar(2, 'astrologo')" alt="Imagem das classes">
                 </div>
-                <div class="carrossel box2" id="box2" style="display: none;">
-                    <img src="imagens/PRINTS/bandido.png" alt="Imagem das classes">
-                    <img src="imagens/PRINTS/confessor.png" alt="Imagem das classes">
-                    <img src="imagens/PRINTS/guerreiro.png" alt="Imagem das classes">
+                <div class="carrossel box2" id="box2" style="display: none;" id="carrossel">
+                    <img src="imagens/PRINTS/bandido.png"  id="img_bandido" onclick="destacar(3, 'bandido')" alt="Imagem das classes">
+                    <img src="imagens/PRINTS/confessor.png" id="img_confessor" onclick="destacar(4, 'confessor')" alt="Imagem das classes">
+                    <img src="imagens/PRINTS/guerreiro.png" id="img_guerreiro" onclick="destacar(5, 'guerreiro')" alt="Imagem das classes">
                 </div>
-                <div class="carrossel box3" id="box3" style="display: none;">
-                    <img src="imagens/PRINTS/heroi.png" alt="Imagem das classes">
-                    <img src="imagens/PRINTS/prisioneiro.png" alt="Imagem das classes">
-                    <img src="imagens/PRINTS/profeta.png" alt="Imagem das classes">
+                <div class="carrossel box3" id="box3" style="display: none;" id="carrossel">
+                    <img src="imagens/PRINTS/heroi.png" id="img_heroi" onclick="destacar(6, 'heroi')" alt="Imagem das classes">
+                    <img src="imagens/PRINTS/prisioneiro.png" id="img_prisioneiro" onclick="destacar(7, 'prisioneiro')" alt="Imagem das classes">
+                    <img src="imagens/PRINTS/profeta.png" id="img_profeta" onclick="destacar(8, 'profeta')" alt="Imagem das classes">
                 </div>
-                <div class="carrossel box4" id="box4" style="display: none;">
-                    <img src="imagens/PRINTS/samurai.png" alt="Imagem das classes">
+                <div class="carrossel box4" id="box4" style="display: none;" id="carrossel">
+                    <img src="imagens/PRINTS/samurai.png" id="img_samurai" onclick="destacar(9, 'samurai')" alt="Imagem das classes">
                 </div>
                 <button class="seguir" onclick="seguir()">&#10095;</button>
             </div>
@@ -227,7 +227,7 @@
                     </div>
                 </div>
             </div>
-            <div class="builds">
+            <div class="builds" id="builds" style="display: none;">
                 <div class="arma">
                     <div id="forca" class="boxes" style="display: block;">
                         <h1>Espada Grande de Minério Meteórico (Meteoric Ore Blade)</h1>
@@ -275,8 +275,22 @@
 </html>
 
 <script>
+    var classeEscolhida = '';
     var tamanho = 0;
     var porcentagem = 0;
+    var imagens = [
+        document.getElementById('img_miseravel'),
+        document.getElementById('img_andarilho'),
+        document.getElementById('img_astrologo'),
+        document.getElementById('img_bandido'),
+        document.getElementById('img_confessor'),
+        document.getElementById('img_guerreiro'),
+        document.getElementById('img_heroi'),
+        document.getElementById('img_prisioneiro'),
+        document.getElementById('img_profeta'),
+        document.getElementById('img_samurai')
+    ];
+
     function loading() {
         div_loading.style.display = 'flex';
         dashboard.style.display = 'none';
@@ -295,6 +309,15 @@
         setTimeout(() => {
             fecharModal()
         }, "2800");
+    }
+     
+    function destacar(indiceImagem, nomeClasse){
+        for (var i = 0; i < imagens.length; i++) {
+            var img_atual = imagens[i];
+            img_atual.style.filter = 'grayscale(100%)'
+        }
+        imagens[indiceImagem].style.filter = 'grayscale(0%)'
+        classeEscolhida = nomeClasse;
     }
 
     function abriLateral() {

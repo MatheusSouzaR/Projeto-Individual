@@ -191,8 +191,8 @@ body {
 }
 
 .classes img:hover {
-  filter: grayscale(0%);
-  transition: 0.2s;
+  transition: 0.5s;
+  transform: scale(1.04);
 }
 
 .voltar,
@@ -483,6 +483,7 @@ h1 {
   background-color: #040200;
   width: 20%;
   height: 90%;
+  text-align: center;
 }
 
 .tabela .titulo {
@@ -498,10 +499,6 @@ h1 {
   height: 100%;
   font-size: 20px;
   line-height: 60px;
-  text-align: center;
-}
-.tabela .tops span{
-  margin: 0px 50px 0px 0px;
 }
 
 
