@@ -37,7 +37,14 @@ nav {
     width: 70%;
 }
 
-.logar {
+#logar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30%;
+}
+
+#dash{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -305,10 +312,11 @@ footer p {
 
 .redes-sociais {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     width: 33%;
+    height: 100%;
     margin-left: 15px;
 }
 
@@ -331,6 +339,12 @@ footer p {
     margin: 20px 20px;
 }
 
+.link a{
+    color: var(--dourado);
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
 /* Cadastro */
 
 .tela-cadastro {
@@ -343,14 +357,9 @@ footer p {
 }
 
 .img-cadastro {
-    width: 30%;
+    width: 26%;
     height: 100%;
     display: flex;
-}
-
-.img-cadastro img {
-    width: 100%;
-    height: 100%;
 }
 
 .img-cadastro .seta {
@@ -370,7 +379,7 @@ footer p {
 
 .box-cadastro {
     display: flex;
-    width: 70%;
+    width: 74%;
     height: 100%;
     flex-direction: column;
     justify-content: center;
@@ -473,19 +482,22 @@ footer p {
 }
 
 .img-login {
-    width: 30%;
+    width: 26%;
     height: 100%;
     display: flex;
 }
 
-.img-login img {
+video{
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center;
+
 }
 
 .box-login {
     display: flex;
-    width: 70%;
+    width: 74%;
     height: 100%;
     flex-direction: column;
     justify-content: center;

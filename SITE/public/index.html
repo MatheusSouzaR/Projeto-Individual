@@ -18,9 +18,12 @@
             <a href="#bosses">BOSSES</a>
             <a href="#jogo">JOGO</a>
         </div>
-        <div class="logar">
+        <div id="logar">
             <a href="./login.html">LOGIN</a>
             <a href="./cadastro.html">CADASTRO</a>
+        </div>
+        <div id="dash" style="display: none;">
+            <a href="./dashboard/dashboard.html">CRIE SUA BUILD</a>
         </div>
     </nav>
 
@@ -190,7 +193,11 @@
                     <img src="./IMAGENS/facebook.png" alt="">
                     <img src="./IMAGENS/icon-instagram.png" alt="">
                     <img src="./IMAGENS/icone-linkedin.png" alt="">
-                    <img src="./IMAGENS/github.png" alt="">
+                    <a href="https://github.com/MatheusSouzaR/Projeto-Individual"><img src="./IMAGENS/github.png" alt=""></a>
+                </div>
+                <p>Documentação do Projeto:</p>
+                <div class="link">
+                    <a href="">Clique aqui para vizualizar</a>
                 </div>
             </div>
         </div>
@@ -201,7 +208,16 @@
 
 </html>
 <script>
+    window.onload = verificarLogin();
+
     function verMapa() {
         mapa.style.display = 'flex'
+    }
+
+    function verificarLogin(){
+        if(sessionStorage.NOME_USUARIO != null){
+            dash.style.display = 'flex'
+            logar.style.display = 'none'
+        }
     }
 </script>

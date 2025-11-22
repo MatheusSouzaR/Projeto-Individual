@@ -18,11 +18,11 @@
 </head>
 
 <body>
-    <!-- <div id="div_loading" style="display: none;">
+    <div id="div_loading" style="display: none;">
         <img src="../IMAGENS/telaLoading.jpeg" alt="">
         <p id="p"></p>
         <hr id="hr">
-    </div> -->
+    </div>
     <div id="dashboard">
         <nav id="telaLateral" style="display: none;">
             <div class="lateral">
@@ -41,28 +41,38 @@
             <div class="header">
                 <img src="./imagens/barras.png" alt="" onclick="abriLateral()">
                 <div class="titulo">
-                    <h1>MONTE SUA BUILD</h1>
+                    <p>MONTE SUA BUILD</p>
                 </div>
             </div>
             <div class="classes">
                 <button class="voltar" onclick="voltar()">&#10094;</button>
                 <div class="carrossel box1" id="box1" id="carrossel">
-                    <img src="imagens/PRINTS/miseravel.png" id="img_miseravel" onclick="destacar(0, 'miseravel')" alt="Imagem das classes">
-                    <img src="imagens/PRINTS/andarilho.png" id="img_andarilho" onclick="destacar(1, 'andarilho')" alt="Imagem das classes">
-                    <img src="imagens/PRINTS/astrologo.png" id="img_astrologo" onclick="destacar(2, 'astrologo')" alt="Imagem das classes">
+                    <img src="imagens/PRINTS/miseravel.png" id="img_miseravel" onclick="destacar(0, 'miseravel')"
+                        alt="Imagem das classes">
+                    <img src="imagens/PRINTS/andarilho.png" id="img_andarilho" onclick="destacar(1, 'andarilho')"
+                        alt="Imagem das classes">
+                    <img src="imagens/PRINTS/astrologo.png" id="img_astrologo" onclick="destacar(2, 'astrologo')"
+                        alt="Imagem das classes">
                 </div>
                 <div class="carrossel box2" id="box2" style="display: none;" id="carrossel">
-                    <img src="imagens/PRINTS/bandido.png"  id="img_bandido" onclick="destacar(3, 'bandido')" alt="Imagem das classes">
-                    <img src="imagens/PRINTS/confessor.png" id="img_confessor" onclick="destacar(4, 'confessor')" alt="Imagem das classes">
-                    <img src="imagens/PRINTS/guerreiro.png" id="img_guerreiro" onclick="destacar(5, 'guerreiro')" alt="Imagem das classes">
+                    <img src="imagens/PRINTS/bandido.png" id="img_bandido" onclick="destacar(3, 'bandido')"
+                        alt="Imagem das classes">
+                    <img src="imagens/PRINTS/confessor.png" id="img_confessor" onclick="destacar(4, 'confessor')"
+                        alt="Imagem das classes">
+                    <img src="imagens/PRINTS/guerreiro.png" id="img_guerreiro" onclick="destacar(5, 'guerreiro')"
+                        alt="Imagem das classes">
                 </div>
                 <div class="carrossel box3" id="box3" style="display: none;" id="carrossel">
-                    <img src="imagens/PRINTS/heroi.png" id="img_heroi" onclick="destacar(6, 'heroi')" alt="Imagem das classes">
-                    <img src="imagens/PRINTS/prisioneiro.png" id="img_prisioneiro" onclick="destacar(7, 'prisioneiro')" alt="Imagem das classes">
-                    <img src="imagens/PRINTS/profeta.png" id="img_profeta" onclick="destacar(8, 'profeta')" alt="Imagem das classes">
+                    <img src="imagens/PRINTS/heroi.png" id="img_heroi" onclick="destacar(6, 'heroi')"
+                        alt="Imagem das classes">
+                    <img src="imagens/PRINTS/prisioneiro.png" id="img_prisioneiro" onclick="destacar(7, 'prisioneiro')"
+                        alt="Imagem das classes">
+                    <img src="imagens/PRINTS/profeta.png" id="img_profeta" onclick="destacar(8, 'profeta')"
+                        alt="Imagem das classes">
                 </div>
                 <div class="carrossel box4" id="box4" style="display: none;" id="carrossel">
-                    <img src="imagens/PRINTS/samurai.png" id="img_samurai" onclick="destacar(9, 'samurai')" alt="Imagem das classes">
+                    <img src="imagens/PRINTS/samurai.png" id="img_samurai" onclick="destacar(9, 'samurai')"
+                        alt="Imagem das classes">
                 </div>
                 <button class="seguir" onclick="seguir()">&#10095;</button>
             </div>
@@ -72,121 +82,136 @@
                         <div class="atrb">
                             <h3>Vigor</h3>
                         </div>
-                        <input type="text" inputmode="numeric" class="valor-atrb" maxlength="2">
-                        <p>-</p>
+                        <input oninput="alterarValorInput(0)" type="text" id="input_vigor" inputmode="numeric"
+                            class="valor-atrb" maxlength="2" min="9" value="9">
+                        <p class="mais-menos" onclick="decrementar(0)">-</p>
                         <div class="barra">
-                            <input type="range">
+                            <input oninput="alterarValorRange(0)" type="range" id="range_vigor" value="9" min="9"
+                                max="99">
                             <div class="min-max">
                                 <p>9</p>
                                 <p>99</p>
                             </div>
                         </div>
-                        <p>+</p>
+                        <p class="mais-menos" onclick="incrementar(0)">+</p>
                     </div>
                     <div class="atributo">
                         <div class="atrb">
                             <h3>Mente</h3>
                         </div>
-                        <input type="text" inputmode="numeric" class="valor-atrb" maxlength="2">
-                        <p>-</p>
+                        <input oninput="alterarValorInput(1)" type="text" id="input_mente" inputmode="numeric"
+                            class="valor-atrb" maxlength="2" min="9" value="9">
+                        <p class="mais-menos" onclick="decrementar(1)">-</p>
                         <div class="barra">
-                            <input type="range">
+                            <input oninput="alterarValorRange(1)" type="range" id="range_mente" value="9" min="9"
+                                max="99">
                             <div class="min-max">
                                 <p>9</p>
                                 <p>99</p>
                             </div>
                         </div>
-                        <p>+</p>
+                        <p class="mais-menos" onclick="incrementar(1)">+</p>
                     </div>
                     <div class="atributo">
                         <div class="atrb">
                             <h3>Resistência</h3>
                         </div>
-                        <input type="text" inputmode="numeric" class="valor-atrb" maxlength="2">
-                        <p>-</p>
+                        <input oninput="alterarValorInput(2)" type="text" id="input_resistencia" inputmode="numeric"
+                            class="valor-atrb" maxlength="2" min="8" value="8">
+                        <p class="mais-menos" onclick="decrementar(2)">-</p>
                         <div class="barra">
-                            <input type="range">
+                            <input oninput="alterarValorRange(2)" type="range" id="range_resistencia" value="8" min="8"
+                                max="99">
                             <div class="min-max">
-                                <p>9</p>
+                                <p>8</p>
                                 <p>99</p>
                             </div>
                         </div>
-                        <p>+</p>
+                        <p class="mais-menos" onclick="incrementar(2)">+</p>
                     </div>
                     <div class="atributo">
                         <div class="atrb">
                             <h3>Força</h3>
                         </div>
-                        <input type="text" inputmode="numeric" class="valor-atrb" maxlength="2">
-                        <p>-</p>
+                        <input oninput="alterarValorInput(3)" type="text" id="input_forca" inputmode="numeric"
+                            class="valor-atrb" maxlength="2" min="8" value="8">
+                        <p class="mais-menos" onclick="decrementar(3)">-</p>
                         <div class="barra">
-                            <input type="range">
+                            <input oninput="alterarValorRange(3)" type="range" id="range_forca" value="8" min="8"
+                                max="99">
                             <div class="min-max">
-                                <p>9</p>
+                                <p>8</p>
                                 <p>99</p>
                             </div>
                         </div>
-                        <p>+</p>
+                        <p class="mais-menos" onclick="incrementar(3)">+</p>
                     </div>
                     <div class="atributo">
                         <div class="atrb">
                             <h3>Destreza</h3>
                         </div>
-                        <input type="text" inputmode="numeric" class="valor-atrb" maxlength="2">
-                        <p>-</p>
+                        <input oninput="alterarValorInput(4)" type="text" id="input_destreza" inputmode="numeric"
+                            class="valor-atrb" maxlength="2" min="8" value="8">
+                        <p class="mais-menos" onclick="decrementar(4)">-</p>
                         <div class="barra">
-                            <input type="range">
+                            <input oninput="alterarValorRange(4)" type="range" id="range_destreza" value="8" min="8"
+                                max="99">
                             <div class="min-max">
-                                <p>9</p>
+                                <p>8</p>
                                 <p>99</p>
                             </div>
                         </div>
-                        <p>+</p>
+                        <p class="mais-menos" onclick="incrementar(4)">+</p>
                     </div>
                     <div class="atributo">
                         <div class="atrb">
                             <h3>Inteligência</h3>
                         </div>
-                        <input type="text" inputmode="numeric" class="valor-atrb" maxlength="2">
-                        <p>-</p>
+                        <input oninput="alterarValorInput(5)" type="text" id="input_inteligencia" inputmode="numeric"
+                            class="valor-atrb" maxlength="2" min="7" value="7">
+                        <p class="mais-menos" onclick="decrementar(5)">-</p>
                         <div class="barra">
-                            <input type="range">
+                            <input oninput="alterarValorRange(5)" type="range" id="range_inteligencia" value="7" min="7"
+                                max="99">
                             <div class="min-max">
-                                <p>9</p>
+                                <p>7</p>
                                 <p>99</p>
                             </div>
                         </div>
-                        <p>+</p>
+                        <p class="mais-menos" onclick="incrementar(5)">+</p>
                     </div>
                     <div class="atributo">
                         <div class="atrb">
                             <h3>Fé</h3>
                         </div>
-                        <input type="text" inputmode="numeric" class="valor-atrb" maxlength="2">
-                        <p>-</p>
+                        <input oninput="alterarValorInput(6)" type="text" id="input_fe" inputmode="numeric"
+                            class="valor-atrb" maxlength="2" min="6" value="6">
+                        <p class="mais-menos" onclick="decrementar(6)">-</p>
                         <div class="barra">
-                            <input type="range">
+                            <input oninput="alterarValorRange(6)" type="range" id="range_fe" value="6" min="6" max="99">
                             <div class="min-max">
-                                <p>9</p>
+                                <p>6</p>
                                 <p>99</p>
                             </div>
                         </div>
-                        <p>+</p>
+                        <p class="mais-menos" onclick="incrementar(6)">+</p>
                     </div>
                     <div class="atributo">
                         <div class="atrb">
                             <h3>Arcano</h3>
                         </div>
-                        <input type="text" inputmode="numeric" class="valor-atrb" maxlength="2">
-                        <p>-</p>
+                        <input oninput="alterarValorInput(7)" type="text" id="input_arcano" inputmode="numeric"
+                            class="valor-atrb" maxlength="2" min="7" value="7">
+                        <p class="mais-menos" onclick="decrementar(7)">-</p>
                         <div class="barra">
-                            <input type="range">
+                            <input oninput="alterarValorRange(7)" type="range" id="range_arcano" value="7" min="7"
+                                max="99">
                             <div class="min-max">
-                                <p>9</p>
+                                <p>7</p>
                                 <p>99</p>
                             </div>
                         </div>
-                        <p>+</p>
+                        <p class="mais-menos" onclick="incrementar(7)">+</p>
                     </div>
                 </div>
                 <div class="upar">
@@ -195,41 +220,40 @@
                         <div class="coluna">
                             <div class="item">
                                 <span>Level:</span>
-                                <div class="box">999999</div>
+                                <div class="box" id="div_level">1</div>
                             </div>
                             <div class="item">
                                 <span>Total de runas:</span>
-                                <div class="box">999999</div>
+                                <div class="box" id="div_runas">0</div>
                             </div>
                             <div class="item">
-                                <span>Runas para o próximo nivel:</span>
-                                <div class="box">999999</div>
+                                <span>HP:</span>
+                                <div class="box" id="div_vida">414</div>
                             </div>
                         </div>
                         <div class="coluna">
                             <div class="item">
-                                <span>HP:</span>
-                                <div class="box">999999</div>
-                            </div>
-                            <div class="item">
                                 <span>Mana:</span>
-                                <div class="box">999999</div>
+                                <div class="box" id="div_mana">65</div>
                             </div>
                             <div class="item">
                                 <span>Estamina:</span>
-                                <div class="box">999999</div>
+                                <div class="box" id="div_vigor">90</div>
                             </div>
                             <div class="item">
                                 <span>Carregar equipamentos:</span>
-                                <div class="box">999999</div>
+                                <div class="box" id="div_peso">45</div>
                             </div>
                         </div>
                     </div>
+                    <div class="botao">
+                        <a href="#builds"><button onclick="verificarBuild()">Verificar build</button></a>
+                    </div>
                 </div>
             </div>
-            <div class="builds" id="builds" style="display: none;">
+            <div id="builds" style="display: none;">
                 <div class="arma">
-                    <div id="forca" class="boxes" style="display: block;">
+                    <div id="forca" class="boxes" style="display: none;">
                         <h1>Espada Grande de Minério Meteórico (Meteoric Ore Blade)</h1>
                         <h2>Arma indicada para builds de Força</h2>
                         <img src="./imagens/forca.webp" alt="">
@@ -266,6 +290,22 @@
                     <div class="canvas">
                         <canvas id="grafico"></canvas>
                     </div>
+                    <div class="botao">
+                        <button onclick="salvar()">SALVAR BUILD</button>
+                    </div>
+                </div>
+                <div class="x">
+                    <img src="./imagens/x.png" alt="" onclick="fecharBuild()">
+                </div>
+                <div id="modalClasse" style="display: none;">
+                    <div class="modal">
+                        <h1>Qual será o nome da sua build:</h1>
+                        <input type="text" id="apelido">
+                        <div class="botaoModal">
+                            <button onclick="cadastrarBuild()">Salvar</button>
+                            <button onclick="fecharTela()">Fechar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -275,9 +315,12 @@
 </html>
 
 <script>
+    // window.onload = loading();
     var classeEscolhida = '';
     var tamanho = 0;
     var porcentagem = 0;
+    var level = 0;
+
     var imagens = [
         document.getElementById('img_miseravel'),
         document.getElementById('img_andarilho'),
@@ -290,6 +333,39 @@
         document.getElementById('img_profeta'),
         document.getElementById('img_samurai')
     ];
+
+    var range = [
+        document.getElementById('range_vigor'),
+        document.getElementById('range_mente'),
+        document.getElementById('range_resistencia'),
+        document.getElementById('range_forca'),
+        document.getElementById('range_destreza'),
+        document.getElementById('range_inteligencia'),
+        document.getElementById('range_fe'),
+        document.getElementById('range_arcano')
+    ];
+
+    var input = [
+        document.getElementById('input_vigor'),
+        document.getElementById('input_mente'),
+        document.getElementById('input_resistencia'),
+        document.getElementById('input_forca'),
+        document.getElementById('input_destreza'),
+        document.getElementById('input_inteligencia'),
+        document.getElementById('input_fe'),
+        document.getElementById('input_arcano')
+    ];
+
+    var build = ['Vigor', 'Mana', 'Res', 'Força', 'Dex', 'Int', 'Fe', 'Arc'];
+    var atrb = [];
+
+    function salvar() {
+        modalClasse.style.display = 'flex'
+    }
+
+    function fecharTela() {
+        modalClasse.style.display = 'none'
+    }
 
     function loading() {
         div_loading.style.display = 'flex';
@@ -308,10 +384,10 @@
 
         setTimeout(() => {
             fecharModal()
-        }, "2800");
+        }, "3000");
     }
-     
-    function destacar(indiceImagem, nomeClasse){
+
+    function destacar(indiceImagem, nomeClasse) {
         for (var i = 0; i < imagens.length; i++) {
             var img_atual = imagens[i];
             img_atual.style.filter = 'grayscale(100%)'
@@ -369,15 +445,128 @@
         }
     }
 
+    function verificarBuild() {
+        if (classeEscolhida == '') {
+            alert('Escolha uma classe para prosseguir com a build')
+        } else {
+            var valor = 0;
+            var maiorAtributo = 8;
+            var buildAtual = '';
+            var j = 0;
+
+            for (var i = 0; i < input.length; i++) {
+                valor = Number(input[i].value);
+                if (valor >= maiorAtributo) {
+                    buildAtual = build[j];
+                    maiorAtributo = valor;
+                }
+                j++;
+            }
+            builds.style.display = 'flex'
+
+            if (buildAtual == 'Força') {
+                forca.style.display = 'block'
+            } else if (buildAtual == 'Int') {
+                int.style.display = 'block'
+            } else if (buildAtual == 'Dex') {
+                dex.style.display = 'block'
+            } else if (buildAtual == 'Fe') {
+                fe.style.display = 'block'
+            } else if (buildAtual == 'Arc') {
+                arc.style.display = 'block'
+            }
+        }
+    }
+
+    function fecharBuild() {
+        builds.style.display = 'none'
+        forca.style.display = 'none'
+        int.style.display = 'none'
+        dex.style.display = 'none'
+        fe.style.display = 'none'
+        arc.style.display = 'none'
+
+    }
+
+    function incrementar(indiceAtrb) {
+        if (input[indiceAtrb].value < 99) {
+            range[indiceAtrb].value = Number(range[indiceAtrb].value) + 1;
+            input[indiceAtrb].value = Number(input[indiceAtrb].value) + 1;
+        }
+        subirNivel()
+        attGrafico()
+    }
+
+    function decrementar(indiceAtrb) {
+        var valorAtual = Number(input[indiceAtrb].value);
+        var valorMin = Number(input[indiceAtrb].min);
+        if (valorAtual > valorMin) {
+            range[indiceAtrb].value = Number(range[indiceAtrb].value) - 1;
+            input[indiceAtrb].value = Number(input[indiceAtrb].value) - 1;
+        }
+        subirNivel()
+        attGrafico()
+    }
+
+    function alterarValorRange(indiceAtrb) {
+        input[indiceAtrb].value = range[indiceAtrb].value;
+        subirNivel()
+        attGrafico()
+    }
+
+    function alterarValorInput(indiceAtrb) {
+        range[indiceAtrb].value = input[indiceAtrb].value;
+        subirNivel()
+        attGrafico()
+    }
+
+    function subirNivel() {
+        level = 0;
+        var vida = Number(input[0].value);
+        var mente = Number(input[1].value);
+        var vigor = Number(input[2].value);
+
+        if (vida > 9) {
+            div_vida.innerHTML = (17 * vida) + 414;
+        }
+
+        if (mente > 9) {
+            div_mana.innerHTML = (4 * mente) + 65;
+        }
+
+        if (vigor > 9) {
+            div_vigor.innerHTML = (vigor + vigor) + 90;
+            div_peso.innerHTML = (vigor * 1.25) + 45;
+        }
+
+        for (var i = 0; i < input.length; i++) {
+            level += Number(input[i].value);
+        }
+        div_level.innerHTML = level - 61;
+        div_runas.innerHTML = level * 2315403;
+
+    }
+
+    function attGrafico() {
+        atrb[0] = Number(input[0].value);
+        atrb[1] = Number(input[1].value);
+        atrb[2] = Number(input[2].value);
+        atrb[3] = Number(input[3].value);
+        atrb[4] = Number(input[4].value);
+        atrb[5] = Number(input[5].value);
+        atrb[6] = Number(input[6].value);
+        atrb[7] = Number(input[7].value);
+    }
+
     var grafico = document.getElementById('grafico');
 
     new Chart(grafico, {
         type: 'radar',
         data: {
-            labels: ['For', 'Int', 'Dex', 'Fé', 'Arc'],
+            labels: build,
             datasets: [{
                 label: 'Build',
-                data: [150, 150, 150, 150, 150],
+                data: atrb,
                 borderWidth: 3,
                 backgroundColor: "rgba(0, 123, 255, 0.35)",
                 borderColor: "#4dabff",
@@ -395,7 +584,7 @@
             scales: {
                 r: {
                     min: 0,
-                    max: 200,
+                    max: 100,
                     ticks: {
                         display: false,
 
@@ -416,239 +605,56 @@
             }
         }
     });
-    // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    // let proximaAtualizacao;
+    function cadastrarBuild() {
+        var nome = apelido.value;
+        var classe = classeEscolhida;
+        var nivel = level;
+        var vigor = atrb[0] = Number(input[0].value);
+        var Mana = atrb[1] = Number(input[1].value);
+        var Res = atrb[2] = Number(input[2].value);
+        var Forca = atrb[3] = Number(input[3].value);
+        var Dex = atrb[4] = Number(input[4].value);
+        var Int = atrb[5] = Number(input[5].value);
+        var Fe = atrb[6] = Number(input[6].value);
+        var Arc = atrb[7] = Number(input[7].value);
 
-    // window.onload = exibirAquariosDoUsuario();
+        fetch("/build/cadastrarBuild", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nome,
+                classeServer: classe,
+                nivelServer: nivel,
+                vigorServer: vigor,
+                ManaServer: Mana,
+                ResServer: Res,
+                ForcaServer: Forca,
+                DexServer: Dex,
+                IntServer: Int,
+                FeServer: Fe,
+                ArcServer: Arc
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
 
-    // function exibirAquariosDoUsuario() {
-    //     var aquarios = JSON.parse(sessionStorage.AQUARIOS);
-    //     aquarios.forEach(item => {
-    //         document.getElementById("btnAquario").innerHTML += `
-    //         <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
-    //         `
+                if (resposta.ok) {
 
-    //         document.getElementById("graficos").innerHTML += `
-    //             <div id="grafico${item.id}" class="display-none">
-    //                 <h3 class="tituloGraficos">
-    //                     <span id="tituloAquario${item.id}">${item.descricao}</span>
-    //                 </h3>
-    //                 <div class="graph">
-    //                     <canvas id="myChartCanvas${item.id}"></canvas>
-    //                 </div>
-    //                 <div class="label-captura">
-    //                     <p id="avisoCaptura${item.id}" style="color: white"></p>
-    //                 </div>
-    //             </div>
-    //         `
+                    alert("Classe salva com sucesso!");
 
-    //         obterDadosGrafico(item.id)
-    //     });
+                } else {
+                    throw "Houve um erro ao tentar salvar a classe!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
 
-    //     if (aquarios.length > 0) {
-    //         exibirAquario(aquarios[0].id)
-    //     }
-    // }
-
-    // function alterarTitulo(idAquario) {
-    //     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-    //     var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
-    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>" + descricao + "</span>"
-    // }
-
-    // function exibirAquario(idAquario) {
-    //     let todosOsGraficos = JSON.parse(sessionStorage.AQUARIOS);
-
-    //     for (i = 0; i < todosOsGraficos.length; i++) {
-    //         // exibindo - ou não - o gráfico
-    //         if (todosOsGraficos[i].id != idAquario) {
-    //             let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
-    //             if (elementoAtual.classList.contains("display-block")) {
-    //                 elementoAtual.classList.remove("display-block")
-    //             }
-    //             elementoAtual.classList.add("display-none")
-
-    //             // alterando estilo do botão
-    //             let btnAtual = document.getElementById(`btnAquario${todosOsGraficos[i].id}`)
-    //             if (btnAtual.classList.contains("btn-pink")) {
-    //                 btnAtual.classList.remove("btn-pink")
-    //             }
-    //             btnAtual.classList.add("btn-white")
-    //         }
-    //     }
-
-    //     // exibindo - ou não - o gráfico
-    //     let graficoExibir = document.getElementById(`grafico${idAquario}`)
-    //     graficoExibir.classList.remove("display-none")
-    //     graficoExibir.classList.add("display-block")
-
-    //     // alterando estilo do botão
-    //     let btnExibir = document.getElementById(`btnAquario${idAquario}`)
-    //     btnExibir.classList.remove("btn-white")
-    //     btnExibir.classList.add("btn-pink")
-    // }
-
-    // // O gráfico é construído com três funções:
-    // // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-    // // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-    // // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    // //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    // //     Para ajustar o "select", ajuste o comando sql em src/models
-    // function obterDadosGrafico(idAquario) {
-
-    //     alterarTitulo(idAquario)
-
-    //     if (proximaAtualizacao != undefined) {
-    //         clearTimeout(proximaAtualizacao);
-    //     }
-
-    //     fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (resposta) {
-    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-    //                 resposta.reverse();
-
-    //                 plotarGrafico(resposta, idAquario);
-
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-    // }
-
-    // // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // // Configura o gráfico (cores, tipo, etc), materializa-o na página e,
-    // // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    // function plotarGrafico(resposta, idAquario) {
-
-    //     console.log('iniciando plotagem do gráfico...');
-
-    //     // Criando estrutura para plotar gráfico - labels
-    //     let labels = [];
-
-    //     // Criando estrutura para plotar gráfico - dados
-    //     let dados = {
-    //         labels: labels,
-    //         datasets: [{
-    //             label: 'Umidade',
-    //             data: [],
-    //             fill: false,
-    //             borderColor: 'rgb(75, 192, 192)',
-    //             tension: 0.1
-    //         },
-    //         {
-    //             label: 'Temperatura',
-    //             data: [],
-    //             fill: false,
-    //             borderColor: 'rgb(199, 52, 52)',
-    //             tension: 0.1
-    //         }]
-    //     };
-
-    //     console.log('----------------------------------------------')
-    //     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    //     console.log(resposta)
-
-    //     // Inserindo valores recebidos em estrutura para plotar o gráfico
-    //     for (i = 0; i < resposta.length; i++) {
-    //         var registro = resposta[i];
-    //         labels.push(registro.momento_grafico);
-    //         dados.datasets[0].data.push(registro.umidade);
-    //         dados.datasets[1].data.push(registro.temperatura);
-    //     }
-
-    //     console.log('----------------------------------------------')
-    //     console.log('O gráfico será plotado com os respectivos valores:')
-    //     console.log('Labels:')
-    //     console.log(labels)
-    //     console.log('Dados:')
-    //     console.log(dados.datasets)
-    //     console.log('----------------------------------------------')
-
-    //     // Criando estrutura para plotar gráfico - config
-    //     const config = {
-    //         type: 'line',
-    //         data: dados,
-    //     };
-
-    //     // Adicionando gráfico criado em div na tela
-    //     let myChart = new Chart(
-    //         document.getElementById(`myChartCanvas${idAquario}`),
-    //         config
-    //     );
-
-    //     setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-    // }
-
-
-    // // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // // buscando a última medida inserida em tabela contendo as capturas,
-
-    // //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    // //     Para ajustar o "select", ajuste o comando sql em src/models
-    // function atualizarGrafico(idAquario, dados, myChart) {
-
-
-
-    //     fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (novoRegistro) {
-
-    //                 obterdados(idAquario);
-    //                 // alertar(novoRegistro, idAquario);
-    //                 console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-    //                 console.log(`Dados atuais do gráfico:`);
-    //                 console.log(dados);
-
-    //                 let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
-    //                 avisoCaptura.innerHTML = ""
-
-
-    //                 if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-    //                     console.log("---------------------------------------------------------------")
-    //                     console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-    //                     avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-    //                     console.log("Horário do novo dado capturado:")
-    //                     console.log(novoRegistro[0].momento_grafico)
-    //                     console.log("Horário do último dado capturado:")
-    //                     console.log(dados.labels[dados.labels.length - 1])
-    //                     console.log("---------------------------------------------------------------")
-    //                 } else {
-    //                     // tirando e colocando valores no gráfico
-    //                     dados.labels.shift(); // apagar o primeiro
-    //                     dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-    //                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-    //                     dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-    //                     dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-    //                     dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-    //                     myChart.update();
-    //                 }
-
-    //                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    //                 proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    //             proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-
-    // }
+        return false;
+    }
 </script>

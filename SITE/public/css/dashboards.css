@@ -137,17 +137,19 @@ body {
 
 .header {
   display: flex;
-  width: 67%;
+  width: 68%;
   height: 100px;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
 }
 
-.header h1 {
+.header p {
   text-align: center;
   color: var(--dourado);
   font-family: "Cormorant Garamond", serif;
   font-size: 60px;
+  font-weight: bold;
 }
 
 .header img {
@@ -240,6 +242,10 @@ body {
   margin: 20px 0px 0px 20px;
 }
 
+.atributo input{
+  font-size: 20px;
+}
+
 .atrb {
   display: flex;
   width: 10%;
@@ -266,6 +272,14 @@ body {
   flex-direction: column;
 }
 
+.barra input{
+  cursor: pointer;
+}
+
+.mais-menos{
+  cursor: pointer;
+}
+
 .min-max {
   display: flex;
   flex-direction: row;
@@ -281,6 +295,7 @@ body {
   width: 50%;
   height: 100%;
   flex-direction: column;
+  align-content: center;
   justify-content: center;
 }
 
@@ -293,12 +308,13 @@ h1 {
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: space-around;
+  height: 50%;
 }
 
 .coluna {
   display: flex;
-  width: 50%;
+  width: 80%;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   line-height: 50px;
@@ -310,6 +326,7 @@ h1 {
   flex-direction: row;
   width: 100%;
   align-items: center;
+  height: 100%;
 }
 
 .coluna span {
@@ -326,10 +343,39 @@ h1 {
   background-color: green;
   color: var(--dourado);
   border: none;
-  margin-right: 25px;
 }
 
-.builds {
+#div_runas{
+  width: 110px;
+  margin-left: -40px;
+}
+
+.botao{
+  display: flex;
+  width: 100%;
+  height: 10%;
+  justify-content: center;
+  align-items: center;
+}
+
+.grafico .botao{
+  margin-left: -20px; 
+}
+
+.botao button{
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.botao button:hover{
+  transition: 0.3s;
+  transform: scale(1.2);
+}
+
+#builds {
   display: flex;
   width: 100%;
   height: 100vh;
@@ -341,7 +387,7 @@ h1 {
 
 .arma {
   display: flex;
-  width: 50%;
+  width: 90%;
   height: 100%;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5));
   justify-content: center;
@@ -349,16 +395,15 @@ h1 {
 
 .grafico {
   display: flex;
-  width: 50%;
+  width: 10%;
   height: 100%;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5));
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
 .canvas {
   display: flex;
-  width: 80%;
+  width: 600px;
 }
 
 .boxes {
@@ -371,13 +416,31 @@ h1 {
   height: 500px;
 }
 
+.x{
+  display: flex;
+  position: absolute;
+  width: 97%;
+  justify-content: end;
+  margin-top: 40px;
+}
+
+.x img{
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+
+.x img:hover{
+  transition: 0.2s;
+  transform: scale(1.2);
+}
 /* Tela de Classes */
 
 .fundo-classes {
   display: flex;
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1)), url('../dashboard/imagens/fundoClasses.jpeg');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 5%, rgba(0, 0, 0, 0) 80%), url('../dashboard/imagens/fundoClasses.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -385,6 +448,36 @@ h1 {
   overflow-y: hidden;
   justify-content: center;
   align-items: center;
+}
+
+.header-classes {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.header-classes p {
+  text-align: center;
+  color: var(--dourado);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 60px;
+  font-weight: bold;
+  width: 1220px;
+}
+
+.header-classes img {
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.header-classes img:hover {
+  width: 80px;
+  height: 80px;
 }
 
 #modalClasse {
@@ -448,6 +541,7 @@ h1 {
 .fundo-classes #telaPrincipal {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   height: 100%;
   z-index: 9;
@@ -456,7 +550,7 @@ h1 {
 .topo {
   display: flex;
   width: 100%;
-  height: 30%;
+  height: 35%;
   flex-direction: row;
   justify-content: space-around;
   color: white;
@@ -464,48 +558,32 @@ h1 {
 
 .baixo {
   display: flex;
-  width: 100%;
-  height: 70%;
+  width: 95%;
+  height: 65%;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
 .grafico {
-  width: 60%;
-  height: 95%;
+  display: flex;
+  justify-content: center;
+  width: 65%;
+  height: 98%;
+}
+
+.grafico-pie {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  height: 98%;
 }
 
 .baixo .grafico {
   background-color: rgb(0, 0, 0, 0.7);
 }
 
-.tabela {
-  background-color: #040200;
-  width: 20%;
-  height: 90%;
-  text-align: center;
-}
-
-.tabela .titulo {
-  background-color: white;
-  text-align: center;
-  font-size: 25px;
-  color: var(--dourado);
-}
-
-.tabela .tops {
-  background-color: aquamarine;
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
-  line-height: 60px;
-}
-
-
-.tabela .tops hr {
-  background-color: var(--preto);
-  height: 5px;
-  border: none;
+.baixo .grafico-pie{
+  background-color: rgb(0, 0, 0, 0.8);
 }
 
 .kpi {
@@ -514,8 +592,9 @@ h1 {
   align-items: center;
   flex-direction: column;
   width: 250px;
-  height: 150px;
+  height: 170px;
   border-radius: 10px;
+  font-size: 20px;
 }
 
 .kpi h1 {
@@ -523,15 +602,15 @@ h1 {
 }
 
 .atual {
-  background-color: rgba(205, 38, 194, 0.6);
+  background-color: rgba(1, 1, 1, 0.8);
 }
 
 .atual button {
   cursor: pointer;
-  background-color: rgba(205, 38, 194, 0.6);
+  background-color: var(--dourado);
   border: none;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 18px;
   width: 120px;
   height: 25px;
   color: white;
@@ -542,11 +621,10 @@ h1 {
   transform: scale(1.2);
 }
 
-
 .build {
-  background-color: rgba(205, 38, 194, 0.6);
+  background-color: rgba(1, 1, 1, 0.8);
 }
 
 .classe {
-  background-color: rgba(205, 38, 194, 0.6);
+  background-color: rgba(1, 1, 1, 0.8);
 }
