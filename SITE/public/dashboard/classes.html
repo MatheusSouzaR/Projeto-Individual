@@ -17,9 +17,10 @@
             <img src="./imagens/elden-ring-logo.png" alt="">
         </div>
         <div class="telas">
+            <p>Olá, <span id="b_usuario"></span></p>
             <a href="../index.html">HOME</a>
             <a href="./dashboard.html">BUILDS</a>
-            <a href="../login.html">SAIR</a>
+            <a href="../index.html" onclick="deslogar()">SAIR</a>
         </div>
         <div class="sair">
             <button onclick="fecharLateral()">FECHAR <span>&#10095;</span></button>
@@ -27,17 +28,15 @@
     </nav>
     <div id="modalClasse" style="display: none;">
         <div class="modal">
-            <h1>Selecione a classe:</h1>
-            <Select>
-                <option disabled selected value="#">Selecione qual classe usar:</option>
-                <option value="1">Guerreirin</option>
-                <option value="2">Coque</option>
-                <option value="3">Biorn</option>
-                <option value="4">Ragnar</option>
-            </Select>
+            <h1>Digite o nome da Build que deseja ver:</h1>
+            <input type="text" id="input_classeBuscada">
             <div class="botaoModal">
-                <button onclick="fecharModal()">Selecionar</button>
+                <button onclick="mostrarClasse()">Buscar</button>
                 <button onclick="fecharModal()">Fechar</button>
+            </div>
+            <div class="botaoModal pesquisa">
+                <div id="classesSalvar"></div>
+                <button onclick="pesquisarClasses()">Ver classes salvas</button>
             </div>
         </div>
     </div>
@@ -50,21 +49,21 @@
         </div>
         <div class="topo">
             <div class="kpi atual">
-                Classe Atual
-                <h1>Samurai</h1>
+                Classe Atual:
+                <h1 id="classeAtual"></h1>
                 <button onclick="mudarClasse()">Mudar classe</button>
             </div>
             <div class="kpi build">
-                Build mais usada:
-                <h1>Força</h1>
+                Nivel da build:
+                <h1 id="nivelAtual"></h1>
             </div>
             <div class="kpi classe">
                 Classe mais usada:
-                <h1>Samurai</h1>
+                <h1 id="classeMaisUsada"></h1>
             </div>
         </div>
         <div class="baixo">
-            <div class="grafico">
+            <div class="graficoClasse">
                 <canvas id="grafico"></canvas>
             </div>
             <div class="grafico-pie">
@@ -94,170 +93,27 @@
         modalClasse.style.display = 'none'
     }
 
-
-    var build = ['Força', 'Dex', 'Int', 'Fe', 'Arc'];
-    var classes = ['miseravel', 'andarilho', 'astrologo', 'bandido', 'confessor', 'guerreiro', 'heroi', 'prisioneiro', 'profeta', 'samurai'];
-
     var cores = [
-    'rgba(220, 53, 69, 0.5)', 
-    'rgba(0, 83, 142, 0.5)',
-    'rgba(40, 167, 69, 0.5)', 
-    'rgba(255, 193, 7, 0.5)',
-    'rgba(111, 66, 193, 0.5)',
-    'rgba(23, 162, 184, 0.5)',
-    'rgba(253, 126, 20, 0.5)', 
-    'rgba(232, 62, 140, 0.5)',
-    'rgba(108, 117, 125, 0.5)',
-    'rgba(0, 123, 255, 0.5)'
-];
+        'rgba(220, 53, 69, 0.5)',
+        'rgba(0, 83, 142, 0.5)',
+        'rgba(40, 167, 69, 0.5)',
+        'rgba(255, 193, 7, 0.5)',
+        'rgba(111, 66, 193, 0.5)',
+        'rgba(23, 162, 184, 0.5)',
+        'rgba(253, 126, 20, 0.5)',
+        'rgba(232, 62, 140, 0.5)',
+        'rgba(108, 117, 125, 0.5)',
+        'rgba(0, 123, 255, 0.5)'
+    ];
 
-    var grafico = document.getElementById('grafico');
-    var grafico_pie = document.getElementById('grafico_pie');
-
-    new Chart(grafico, {
-        type: 'bar',
-        data: {
-            labels: build,
-            datasets: [{
-                data: [7, 1, 5, 2, 3, 10, 5, 6],
-                borderWidth: 3,
-                backgroundColor: cores,
-            }]
-        },
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'BUILDS',
-                    color: '#fff',
-                    font: {
-                        size: 30,
-                        weight: 'bold'
-                    },
-                    padding: {
-                        top: 50,
-                        bottom: 20
-                    },
-                },
-                legend: {
-                    display: false,
-                    labels: {
-                        color: 'white',
-                        font: {
-                            size: 18
-                        }
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: 'white',
-                        font: {
-                            size: 15
-                        }
-                    }
-                },
-                y: {
-                    ticks: {
-                        color: 'white'
-                    }
-                }
-            }
-        }
-    });
-
-    new Chart(grafico_pie, {
-        type: 'pie',
-        data: {
-            labels: classes,
-            datasets: [{
-                data: [7, 1, 5, 2, 3, 10, 5, 6, 10, 20],
-                borderWidth: 0.5,
-                backgroundColor: cores,
-            }]
-        },
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'CLASSES',
-                    color: '#fff',
-                    font: {
-                        size: 30,
-                        weight: 'bold'
-                    },
-                    padding: {
-                        top: 10,
-                        bottom: 20
-                    },
-                },
-                legend: {
-                    display: true,
-                    position: 'right',
-                    align: 'center',
-                    labels: {
-                        boxWidth: 20,
-                        padding: 15,
-                        color: '#fff'
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: 'white',
-                        font: {
-                            size: 15
-                        }
-                    }
-                },
-                y: {
-                    ticks: {
-                        color: 'white'
-                    }
-                }
-            }
-        }
-    });
+    function deslogar() {
+        sessionStorage.clear()
+    }
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    var idUsuario = sessionStorage.ID_USUARIO;
 
     let proximaAtualizacao;
-
-    window.onload = obterDadosGrafico();
-
-    function exibirAquario(idAquario) {
-        let todosOsGraficos = JSON.parse(sessionStorage.AQUARIOS);
-
-        for (i = 0; i < todosOsGraficos.length; i++) {
-            // exibindo - ou não - o gráfico
-            if (todosOsGraficos[i].id != idAquario) {
-                let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
-                if (elementoAtual.classList.contains("display-block")) {
-                    elementoAtual.classList.remove("display-block")
-                }
-                elementoAtual.classList.add("display-none")
-
-                // alterando estilo do botão
-                let btnAtual = document.getElementById(`btnAquario${todosOsGraficos[i].id}`)
-                if (btnAtual.classList.contains("btn-pink")) {
-                    btnAtual.classList.remove("btn-pink")
-                }
-                btnAtual.classList.add("btn-white")
-            }
-        }
-
-        // exibindo - ou não - o gráfico
-        let graficoExibir = document.getElementById(`grafico${idAquario}`)
-        graficoExibir.classList.remove("display-none")
-        graficoExibir.classList.add("display-block")
-
-        // alterando estilo do botão
-        let btnExibir = document.getElementById(`btnAquario${idAquario}`)
-        btnExibir.classList.remove("btn-white")
-        btnExibir.classList.add("btn-pink")
-    }
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -270,22 +126,20 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function obterDadosGrafico(idAquario) {
-
-        alterarTitulo(idAquario)
+    function obterDadosGrafico() {
+        var classeBuscada = input_classeBuscada.value;
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/dados/pegarDados/${classeBuscada}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
-                    plotarGrafico(resposta, idAquario);
-
+                    plotarGrafico(resposta);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -294,132 +148,288 @@
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
+
+        fecharModal()
     }
 
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e,
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idAquario) {
+    function plotarGrafico(resposta, classeBuscada) {
 
         console.log('iniciando plotagem do gráfico...');
+        console.log('Dados recebidos:', resposta);
 
         // Criando estrutura para plotar gráfico - labels
-        let labels = [];
+        let labels = ['Força', 'Dex', 'Int', 'Fe', 'Arc'];
 
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Umidade',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            },
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
-            }]
-        };
+        let registro = resposta[0];
+
+        let valores = [
+            registro.forca,
+            registro.destreza,
+            registro.inteligencia,
+            registro.fe,
+            registro.arcano
+        ];
 
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
         console.log(resposta)
-
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
-        }
 
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
         console.log('Labels:')
         console.log(labels)
         console.log('Dados:')
-        console.log(dados.datasets)
+        console.log(valores)
         console.log('----------------------------------------------')
 
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'line',
-            data: dados,
+            type: 'radar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: valores,
+                    borderWidth: 3,
+                    backgroundColor: "rgba(0, 123, 255, 0.35)",
+                    borderColor: "#4dabff",
+                    pointBackgroundColor: "#4dabff"
+                }]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'BUILD',
+                        color: '#fff',
+                        font: {
+                            size: 30,
+                            weight: 'bold'
+                        },
+                        padding: {
+                            top: 10,
+                            bottom: 20
+                        },
+                    },
+                    legend: {
+                        display: false,
+                    }
+                },
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 100,
+                        ticks: {
+                            display: false,
+
+                        },
+                        pointLabels: {
+                            color: "#fff",
+                            font: {
+                                size: 20
+                            }
+                        },
+                        grid: {
+                            color: "rgba(255,255,255,0.25)"
+                        },
+                        angleLines: {
+                            color: "rgba(255,255,255,0.25)"
+                        }
+                    }
+                }
+            }
         };
 
         // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
-            document.getElementById(`myChartCanvas${idAquario}`),
+            document.getElementById(`grafico`),
             config
         );
 
-        setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+        obterDadosGraficoPizza()
     }
 
+    function obterDadosGraficoPizza() {
 
-    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas,
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
 
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(idAquario, dados, myChart) {
-
-
-
-        fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/dados/pegarClasses`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
-                response.json().then(function (novoRegistro) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
 
-                    obterdados(idAquario);
-                    // alertar(novoRegistro, idAquario);
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico:`);
-                    console.log(dados);
+                    plotarGraficoPizza(resposta);
 
-                    let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
-                    avisoCaptura.innerHTML = ""
-
-
-                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-                        console.log("---------------------------------------------------------------")
-                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                        avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-                        console.log("Horário do novo dado capturado:")
-                        console.log(novoRegistro[0].momento_grafico)
-                        console.log("Horário do último dado capturado:")
-                        console.log(dados.labels[dados.labels.length - 1])
-                        console.log("---------------------------------------------------------------")
-                    } else {
-                        // tirando e colocando valores no gráfico
-                        dados.labels.shift(); // apagar o primeiro
-                        dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                        dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-                        dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-                        myChart.update();
-                    }
-
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
             }
         })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
+        fecharModal()
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e,
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGraficoPizza(resposta) {
+
+        console.log('iniciando plotagem do gráfico...');
+        console.log('Dados recebidos:', resposta);
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+        let registro = [];
+        var maiorRegistro = 0;
+        var maisUsada = '';
+
+        for (i = 0; i < resposta.length; i++) {
+            labels.push(resposta[i].classe);
+            registro.push(resposta[i].totalClasse);
+
+            if (resposta[i].totalClasse > maiorRegistro) {
+                maiorRegistro = resposta[i].totalClasse;
+                maisUsada = resposta[i].classe
+            }
+            classeMaisUsada.innerHTML = maisUsada;
+        }
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(registro)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: registro,
+                    borderWidth: 0.5,
+                    backgroundColor: cores
+                }]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'CLASSES',
+                        color: '#fff',
+                        font: {
+                            size: 30,
+                            weight: 'bold'
+                        },
+                        padding: {
+                            top: 10,
+                            bottom: 20
+                        },
+                    },
+                    legend: {
+                        display: true,
+                        position: 'right',
+                        align: 'center',
+                        labels: {
+                            boxWidth: 20,
+                            padding: 15,
+                            color: '#fff'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: 'white',
+                            font: {
+                                size: 15
+                            }
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: 'white'
+                        }
+                    }
+                }
+            }
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`grafico_pie`),
+            config
+        );
+    }
+
+    function pesquisarClasses() {
+        classesSalvar.innerHTML = ''
+        var fkUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/dados/pesquisarClasse/${fkUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (classes) {
+                    console.log(`Dados recebidos: ${JSON.stringify(classes)}`);
+                        console.log(classes);
+                        console.log(JSON.stringify(classes));
+                        for (var i = 0; i < classes.length; i++) {
+                            var classeAtual = classes[i];
+                            classesSalvar.innerHTML += `
+                                    <p>Nome: ${classeAtual.nome} Classe: ${classeAtual.classe}</p>
+                                `
+                        }
+                    });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function mostrarClasse() {
+        classeAtual.innerHTML = ''
+        nivelAtual.innerHTML = ''
+        var fkUsuario = sessionStorage.ID_USUARIO;
+        var nome = input_classeBuscada.value;
+        
+
+        fetch(`/dados/mostrarClasse/${fkUsuario}/${nome}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (json) {
+                    console.log(`Dados recebidos: ${JSON.stringify(json)}`);
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        if(json.length > 0){
+                            classeAtual.innerHTML = json[0].classe;
+                            nivelAtual.innerHTML = json[0].nivel;
+                            obterDadosGrafico()
+                        }else{
+                            classesSalvar.innerHTML = 'Build não encontrada'
+                        }
+                    });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
 
 </script>

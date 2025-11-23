@@ -24,6 +24,7 @@
         </div>
         <div id="dash" style="display: none;">
             <a href="./dashboard/dashboard.html">CRIE SUA BUILD</a>
+            <a href="./index.html" onclick="deslogar()">SAIR</a>
         </div>
     </nav>
 
@@ -138,7 +139,8 @@
                         outro caminho, evolua seu
                         personagem e retorne mais tarde.
                         Oriente-se: Siga a orientação das "Graças" (pontos de descanso, similares às fogueiras) para ter
-                        uma noção de para onde ir a seguir. <a href="#mapa" class="click"><span onclick="verMapa()">Clique aqui para ver o mapa do jogo.</span></a><br><br>
+                        uma noção de para onde ir a seguir. <a href="#mapa" class="click"><span
+                                onclick="verMapa()">Clique aqui para ver o mapa do jogo.</span></a><br><br>
                     </p>
                     <p>
                         <span>Progressão do Personagem (Evolução)</span><br>
@@ -193,7 +195,8 @@
                     <img src="./IMAGENS/facebook.png" alt="">
                     <img src="./IMAGENS/icon-instagram.png" alt="">
                     <img src="./IMAGENS/icone-linkedin.png" alt="">
-                    <a href="https://github.com/MatheusSouzaR/Projeto-Individual"><img src="./IMAGENS/github.png" alt=""></a>
+                    <a href="https://github.com/MatheusSouzaR/Projeto-Individual"><img src="./IMAGENS/github.png"
+                            alt=""></a>
                 </div>
                 <p>Documentação do Projeto:</p>
                 <div class="link">
@@ -214,10 +217,14 @@
         mapa.style.display = 'flex'
     }
 
-    function verificarLogin(){
-        if(sessionStorage.NOME_USUARIO != null){
+    function verificarLogin() {
+        if (sessionStorage.NOME_USUARIO != null) {
             dash.style.display = 'flex'
             logar.style.display = 'none'
         }
+    }
+
+    function deslogar() {
+        sessionStorage.clear()
     }
 </script>

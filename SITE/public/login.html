@@ -78,19 +78,24 @@
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO logar()!")
-
+            
             if (resposta.ok) {
                 console.log(resposta);
-
+                
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    
+                    cardErro.style.display = "flex";
+                    div_mensagem.style.color = 'green'
+                    div_mensagem.innerHTML = 'Login efetuado com sucesso, indo para tela de builds'
                     setTimeout(function () {
                         window.location = "./dashboard/dashboard.html";
-                    }, 2800);
+                    }, 1500);
+
                 });
             } else {
                 div_mensagem.innerHTML = "Usuário não encontrado<br>";

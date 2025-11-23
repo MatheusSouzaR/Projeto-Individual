@@ -29,9 +29,10 @@
                 <img src="./imagens/elden-ring-logo.png" alt="">
             </div>
             <div class="telas">
+                <p>Olá, <span id="b_usuario"></span></p>
                 <a href="../index.html">HOME</a>
                 <a href="./classes.html">CLASSES</a>
-                <a href="../login.html">SAIR</a>
+                <a href="../index.html" onclick="deslogar()">SAIR</a>
             </div>
             <div class="sair">
                 <button onclick="fecharLateral()">FECHAR <span>&#10095;</span></button>
@@ -47,31 +48,31 @@
             <div class="classes">
                 <button class="voltar" onclick="voltar()">&#10094;</button>
                 <div class="carrossel box1" id="box1" id="carrossel">
-                    <img src="imagens/PRINTS/miseravel.png" id="img_miseravel" onclick="destacar(0, 'miseravel')"
+                    <img src="imagens/PRINTS/miseravel.png" id="img_miseravel" onclick="destacar(0, 'Miseravel')"
                         alt="Imagem das classes">
-                    <img src="imagens/PRINTS/andarilho.png" id="img_andarilho" onclick="destacar(1, 'andarilho')"
+                    <img src="imagens/PRINTS/andarilho.png" id="img_andarilho" onclick="destacar(1, 'Andarilho')"
                         alt="Imagem das classes">
-                    <img src="imagens/PRINTS/astrologo.png" id="img_astrologo" onclick="destacar(2, 'astrologo')"
+                    <img src="imagens/PRINTS/astrologo.png" id="img_astrologo" onclick="destacar(2, 'Astrologo')"
                         alt="Imagem das classes">
                 </div>
                 <div class="carrossel box2" id="box2" style="display: none;" id="carrossel">
-                    <img src="imagens/PRINTS/bandido.png" id="img_bandido" onclick="destacar(3, 'bandido')"
+                    <img src="imagens/PRINTS/bandido.png" id="img_bandido" onclick="destacar(3, 'Bandido')"
                         alt="Imagem das classes">
-                    <img src="imagens/PRINTS/confessor.png" id="img_confessor" onclick="destacar(4, 'confessor')"
+                    <img src="imagens/PRINTS/confessor.png" id="img_confessor" onclick="destacar(4, 'Confessor')"
                         alt="Imagem das classes">
-                    <img src="imagens/PRINTS/guerreiro.png" id="img_guerreiro" onclick="destacar(5, 'guerreiro')"
+                    <img src="imagens/PRINTS/guerreiro.png" id="img_guerreiro" onclick="destacar(5, 'Guerreiro')"
                         alt="Imagem das classes">
                 </div>
                 <div class="carrossel box3" id="box3" style="display: none;" id="carrossel">
-                    <img src="imagens/PRINTS/heroi.png" id="img_heroi" onclick="destacar(6, 'heroi')"
+                    <img src="imagens/PRINTS/heroi.png" id="img_heroi" onclick="destacar(6, 'Heroi')"
                         alt="Imagem das classes">
-                    <img src="imagens/PRINTS/prisioneiro.png" id="img_prisioneiro" onclick="destacar(7, 'prisioneiro')"
+                    <img src="imagens/PRINTS/prisioneiro.png" id="img_prisioneiro" onclick="destacar(7, 'Prisioneiro')"
                         alt="Imagem das classes">
-                    <img src="imagens/PRINTS/profeta.png" id="img_profeta" onclick="destacar(8, 'profeta')"
+                    <img src="imagens/PRINTS/profeta.png" id="img_profeta" onclick="destacar(8, 'Profeta')"
                         alt="Imagem das classes">
                 </div>
                 <div class="carrossel box4" id="box4" style="display: none;" id="carrossel">
-                    <img src="imagens/PRINTS/samurai.png" id="img_samurai" onclick="destacar(9, 'samurai')"
+                    <img src="imagens/PRINTS/samurai.png" id="img_samurai" onclick="destacar(9, 'Samurai')"
                         alt="Imagem das classes">
                 </div>
                 <button class="seguir" onclick="seguir()">&#10095;</button>
@@ -301,6 +302,7 @@
                     <div class="modal">
                         <h1>Qual será o nome da sua build:</h1>
                         <input type="text" id="apelido">
+                        <div id="div_mensagem"></div>
                         <div class="botaoModal">
                             <button onclick="cadastrarBuild()">Salvar</button>
                             <button onclick="fecharTela()">Fechar</button>
@@ -315,7 +317,12 @@
 </html>
 
 <script>
-    // window.onload = loading();
+    window.onload = loading();
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    function deslogar(){
+        sessionStorage.clear()
+    }
+    
     var classeEscolhida = '';
     var tamanho = 0;
     var porcentagem = 0;
@@ -384,7 +391,7 @@
 
         setTimeout(() => {
             fecharModal()
-        }, "3000");
+        }, "2700");
     }
 
     function destacar(indiceImagem, nomeClasse) {
@@ -609,7 +616,7 @@
     function cadastrarBuild() {
         var nome = apelido.value;
         var classe = classeEscolhida;
-        var nivel = level;
+        var nivel = level + 1;
         var vigor = atrb[0] = Number(input[0].value);
         var Mana = atrb[1] = Number(input[1].value);
         var Res = atrb[2] = Number(input[2].value);
@@ -618,6 +625,11 @@
         var Int = atrb[5] = Number(input[5].value);
         var Fe = atrb[6] = Number(input[6].value);
         var Arc = atrb[7] = Number(input[7].value);
+        var fkUsuario = sessionStorage.ID_USUARIO;
+
+        if(nivel > 61){
+            nivel -= 61;
+        }
 
         fetch("/build/cadastrarBuild", {
             method: "POST",
@@ -637,7 +649,8 @@
                 DexServer: Dex,
                 IntServer: Int,
                 FeServer: Fe,
-                ArcServer: Arc
+                ArcServer: Arc,
+                fkUsuarioServer: fkUsuario
             }),
         })
             .then(function (resposta) {
@@ -645,8 +658,10 @@
 
                 if (resposta.ok) {
 
-                    alert("Classe salva com sucesso!");
-
+                    div_mensagem.innerHTML = 'Build salva com sucesso, indo para dashboard';
+                    setTimeout(function () {
+                        window.location = "./classes.html";
+                    }, 1500);
                 } else {
                     throw "Houve um erro ao tentar salvar a classe!";
                 }
